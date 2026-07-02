@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#E8731A">
+<title>Delícias com Chia — Acesso Vitalício</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#FFF9F5; color:#1A1A1A; }
+
+:root {
+  --orange: #E8731A;
+  --orange-dark: #C45E10;
+  --orange-light: #FFF0E6;
+  --brown: #C4956A;
+  --brown-dark: #5C3A1E;
+  --white: #FFFFFF;
+  --black: #1A1A1A;
+}
+
+.page { max-width: 480px; margin: 0 auto; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, #2A1A0E 0%, #1A1A1A 100%);
+  padding: 40px 24px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(232,115,26,0.15), transparent 70%);
+  top: -80px; right: -60px;
+  border-radius: 50%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(232,115,26,0.2);
+  border: 1px solid rgba(232,115,26,0.4);
+  border-radius: 30px; padding: 6px 16px;
+  font-size: 12px; font-weight: 700; color: #F5A96A;
+  margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.hero-title {
+  font-size: 30px; font-weight: 800; color: white;
+  line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.5px;
+}
+.hero-title span { color: var(--orange); }
+.hero-sub {
+  font-size: 15px; color: rgba(255,255,255,0.7);
+  line-height: 1.6; margin-bottom: 28px;
+}
+
+/* MOCKUP */
+.mockup {
+  background: linear-gradient(135deg, #2A1A0E, #3D2408);
+  border-radius: 28px;
+  border: 2px solid rgba(232,115,26,0.3);
+  padding: 16px;
+  margin: 0 auto 28px;
+  max-width: 260px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  position: relative;
+}
+.mockup-header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 12px;
+}
+.mockup-dot { width: 8px; height: 8px; border-radius: 50%; }
+.mockup-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+}
+.mockup-card {
+  border-radius: 10px; height: 56px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 18px; gap: 2px;
+}
+.mockup-label { font-size: 8px; color: rgba(255,255,255,0.7); font-weight: 600; }
+
+.hero-cta {
+  display: block; width: 100%;
+  background: linear-gradient(135deg, var(--orange), #F5933A);
+  color: white; text-decoration: none;
+  padding: 18px; border-radius: 16px;
+  font-size: 18px; font-weight: 800;
+  box-shadow: 0 6px 24px rgba(232,115,26,0.4);
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+.hero-price {
+  font-size: 13px; color: rgba(255,255,255,0.5);
+}
+.hero-price strong { color: #F5A96A; font-size: 20px; }
+
+/* ── SEÇÕES ── */
+.section { padding: 32px 20px; }
+.section-title {
+  font-size: 22px; font-weight: 800; color: var(--black);
+  line-height: 1.2; margin-bottom: 8px;
+}
+.section-title span { color: var(--orange); }
+.section-sub { font-size: 14px; color: #888; margin-bottom: 20px; line-height: 1.5; }
+
+/* ── PROBLEMAS ── */
+.problem-box {
+  background: #FFF0E6; border-radius: 16px; padding: 20px;
+  margin-bottom: 12px; border-left: 4px solid var(--orange);
+}
+.problem-text { font-size: 14px; color: #555; line-height: 1.5; }
+
+/* ── MÓDULOS ── */
+.module-card {
+  background: white; border-radius: 16px; padding: 16px;
+  margin-bottom: 12px; display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 2px 12px rgba(92,58,30,0.08);
+}
+.module-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.module-name { font-size: 15px; font-weight: 700; color: var(--black); }
+.module-desc { font-size: 12px; color: #888; margin-top: 2px; }
+.module-badge {
+  background: var(--orange-light); color: var(--orange);
+  font-size: 10px; font-weight: 700; padding: 3px 8px;
+  border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+}
+
+/* ── AUTORA ── */
+.autora-card {
+  background: linear-gradient(135deg, var(--brown-dark), #3D2408);
+  border-radius: 20px; padding: 24px; color: white;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.autora-foto {
+  width: 72px; height: 72px; border-radius: 50%;
+  object-fit: cover; border: 3px solid var(--orange);
+  flex-shrink: 0;
+}
+.autora-nome { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.autora-cargo { font-size: 12px; color: #F5A96A; margin-bottom: 10px; font-weight: 600; }
+.autora-bio { font-size: 13px; opacity: .8; line-height: 1.6; }
+
+/* ── DEPOIMENTOS ── */
+.depo-card {
+  background: white; border-radius: 16px; padding: 18px;
+  margin-bottom: 12px; box-shadow: 0 2px 12px rgba(92,58,30,0.08);
+}
+.depo-stars { color: #F5A323; font-size: 14px; margin-bottom: 8px; }
+.depo-text { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 12px; font-style: italic; }
+.depo-autor { display: flex; align-items: center; gap: 10px; }
+.depo-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), #F5933A);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: white; font-weight: 700; flex-shrink: 0;
+}
+.depo-nome { font-size: 13px; font-weight: 700; color: var(--black); }
+.depo-local { font-size: 11px; color: #aaa; }
+
+/* ── PREÇO ── */
+.price-box {
+  background: linear-gradient(160deg, #2A1A0E, #1A1A1A);
+  border-radius: 24px; padding: 28px 24px; text-align: center; color: white;
+  margin-bottom: 16px; border: 1px solid rgba(232,115,26,0.2);
+}
+.price-label { font-size: 12px; opacity: .6; margin-bottom: 6px; letter-spacing: 1px; }
+.price-de { font-size: 16px; color: rgba(255,255,255,0.4); text-decoration: line-through; margin-bottom: 4px; }
+.price-por { font-size: 13px; opacity: .7; margin-bottom: 8px; }
+.price-valor { font-size: 48px; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 4px; }
+.price-acesso { font-size: 12px; color: #F5A96A; margin-bottom: 20px; }
+.price-cta {
+  display: block; width: 100%;
+  background: linear-gradient(135deg, var(--orange), #F5933A);
+  color: white; text-decoration: none;
+  padding: 18px; border-radius: 14px;
+  font-size: 18px; font-weight: 800;
+  box-shadow: 0 6px 24px rgba(232,115,26,0.4);
+  margin-bottom: 14px;
+}
+.price-garantia {
+  font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5;
+}
+.price-includes {
+  text-align: left; margin: 16px 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.price-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: rgba(255,255,255,0.8);
+}
+.price-check { color: var(--orange); font-size: 16px; flex-shrink: 0; }
+
+/* ── FAQ ── */
+.faq-item {
+  background: white; border-radius: 14px; margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(92,58,30,0.06); overflow: hidden;
+}
+.faq-q {
+  padding: 16px; font-size: 14px; font-weight: 700; color: var(--black);
+  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  gap: 10px;
+}
+.faq-arrow { color: var(--orange); font-size: 18px; flex-shrink: 0; transition: transform .2s; }
+.faq-a {
+  display: none; padding: 0 16px 16px;
+  font-size: 13px; color: #555; line-height: 1.6;
+}
+.faq-a.open { display: block; }
+
+/* ── GARANTIA ── */
+.garantia-box {
+  background: white; border-radius: 20px; padding: 24px;
+  text-align: center; box-shadow: 0 4px 16px rgba(92,58,30,0.1);
+}
+.garantia-icon { font-size: 52px; margin-bottom: 12px; }
+.garantia-title { font-size: 18px; font-weight: 800; color: var(--black); margin-bottom: 8px; }
+.garantia-text { font-size: 13px; color: #666; line-height: 1.6; }
+
+/* ── FOOTER ── */
+.footer {
+  background: #1A1A1A; padding: 24px 20px; text-align: center;
+}
+.footer-name { font-size: 15px; font-weight: 700; color: white; margin-bottom: 4px; }
+.footer-text { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+/* ── STICKY CTA ── */
+.sticky-cta {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: white; padding: 12px 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  z-index: 100;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+.sticky-cta a {
+  display: block; width: 100%;
+  background: linear-gradient(135deg, var(--orange), #F5933A);
+  color: white; text-decoration: none;
+  padding: 16px; border-radius: 14px;
+  font-size: 16px; font-weight: 800; text-align: center;
+  box-shadow: 0 4px 16px rgba(232,115,26,0.35);
+}
+
+/* divider */
+.divider { height: 1px; background: #F0E6D8; margin: 0 20px; }
+.bg-warm { background: #FFF0E6; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🍰 Acesso Vitalício</div>
+    <h1 class="hero-title">O app que te ensina a<br><span>emagrecer com chia</span><br>do jeito certo</h1>
+    <p class="hero-sub">Receitas em vídeo, treinos em casa, protocolo 21 dias, contador de calorias IA e muito mais — tudo no seu celular, para sempre.</p>
+
+    <!-- MOCKUP -->
+    <div class="mockup">
+      <div class="mockup-header">
+        <div class="mockup-dot" style="background:#FF5F57"></div>
+        <div class="mockup-dot" style="background:#FFBD2E"></div>
+        <div class="mockup-dot" style="background:#28C840"></div>
+        <div style="flex:1;text-align:center;font-size:10px;color:rgba(255,255,255,0.5);">Delícias com Chia</div>
+      </div>
+      <div class="mockup-grid">
+        <div class="mockup-card" style="background:rgba(232,115,26,0.2);">🎥<span class="mockup-label">Receitas</span></div>
+        <div class="mockup-card" style="background:rgba(92,58,30,0.3);">💪<span class="mockup-label">Treinos</span></div>
+        <div class="mockup-card" style="background:rgba(92,58,30,0.3);">📅<span class="mockup-label">Protocolo</span></div>
+        <div class="mockup-card" style="background:rgba(232,115,26,0.2);">🤖<span class="mockup-label">IA Calorias</span></div>
+      </div>
+    </div>
+
+    <a href="LINK_CHECKOUT" class="hero-cta">Quero meu acesso agora →</a>
+    <div class="hero-price">Por apenas <strong>R$127,90</strong> — acesso vitalício</div>
+  </div>
+
+  <!-- PROBLEMA -->
+  <div class="section">
+    <div class="section-title">Você já tentou e<br><span>não funcionou?</span></div>
+    <div class="section-sub">A gente sabe como é. O problema nunca foi você — foram as ferramentas erradas.</div>
+
+    <div class="problem-box">
+      <div class="problem-text">❌ Receitas complicadas que você desiste no meio</div>
+    </div>
+    <div class="problem-box">
+      <div class="problem-text">❌ Chia com gosto de gosma que ninguém aguenta</div>
+    </div>
+    <div class="problem-box">
+      <div class="problem-text">❌ Dietas que funcionam na semana 1 e param na semana 2</div>
+    </div>
+    <div class="problem-box">
+      <div class="problem-text">❌ Sem saber quantas calorias está comendo de verdade</div>
+    </div>
+    <div class="problem-box">
+      <div class="problem-text">❌ Treinos que precisam de academia ou equipamentos caros</div>
+    </div>
+
+    <div style="margin-top:20px;background:linear-gradient(135deg,var(--brown-dark),var(--orange-dark));border-radius:16px;padding:20px;color:white;text-align:center;">
+      <div style="font-size:22px;font-weight:800;margin-bottom:6px;">✅ Existe uma solução</div>
+      <div style="font-size:14px;opacity:.85;line-height:1.5;">Um programa completo, no seu celular, feito por uma nutricionista que já ajudou milhares de pessoas.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- MÓDULOS -->
+  <div class="section">
+    <div class="section-title">Tudo que você<br><span>recebe no app</span></div>
+    <div class="section-sub">Um programa completo para emagrecer com chia de forma prática e deliciosa.</div>
+
+    <div class="module-card">
+      <div class="module-icon" style="background:linear-gradient(135deg,#FFF0E6,#F5D5B8);">🎥</div>
+      <div style="flex:1;">
+        <div class="module-name">Receitas em Vídeo</div>
+        <div class="module-desc">10+ receitas exclusivas passo a passo</div>
+      </div>
+      <span class="module-badge">Incluso</span>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon" style="background:linear-gradient(135deg,#FFF0E6,#F5D5B8);">💪</div>
+      <div style="flex:1;">
+        <div class="module-name">Treinos em Casa</div>
+        <div class="module-desc">7 exercícios • sem equipamento • 25 min</div>
+      </div>
+      <span class="module-badge">Incluso</span>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon" style="background:linear-gradient(135deg,#FFF0E6,#F5D5B8);">📅</div>
+      <div style="flex:1;">
+        <div class="module-name">Protocolo 21 Dias</div>
+        <div class="module-desc">Cardápio completo com chia em cada refeição</div>
+      </div>
+      <span class="module-badge">Incluso</span>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon" style="background:linear-gradient(135deg,#FFF0E6,#F5D5B8);">🤖</div>
+      <div style="flex:1;">
+        <div class="module-name">Contador de Calorias IA</div>
+        <div class="module-desc">Tire foto do prato e saiba as calorias na hora</div>
+      </div>
+      <span class="module-badge">Exclusivo</span>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon" style="background:linear-gradient(135deg,#FFF0E6,#F5D5B8);">☕</div>
+      <div style="flex:1;">
+        <div class="module-name">Café da Manhã</div>
+        <div class="module-desc">200 receitas + Sucos Detox para download</div>
+      </div>
+      <span class="module-badge">Incluso</span>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon" style="background:linear-gradient(135deg,#FFF0E6,#F5D5B8);">🌾</div>
+      <div style="flex:1;">
+        <div class="module-name">Receitas Sem Glúten</div>
+        <div class="module-desc">7 e-books exclusivos para download</div>
+      </div>
+      <span class="module-badge">Incluso</span>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon" style="background:linear-gradient(135deg,#FFF0E6,#F5D5B8);">🥗</div>
+      <div style="flex:1;">
+        <div class="module-name">Saladas Gostosas</div>
+        <div class="module-desc">Receitas leves, frescas e nutritivas</div>
+      </div>
+      <span class="module-badge">Incluso</span>
+    </div>
+
+    <div class="module-card" style="border:2px solid var(--orange);">
+      <div class="module-icon" style="background:linear-gradient(135deg,#1A1A2E,#2C3E50);">👑</div>
+      <div style="flex:1;">
+        <div class="module-name">Grupo VIP com a Jéssica</div>
+        <div class="module-desc">Tire dúvidas direto com a nutricionista</div>
+      </div>
+      <span class="module-badge" style="background:#1A1A2E;color:white;">VIP</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AUTORA -->
+  <div class="section">
+    <div class="section-title">Quem vai te<br><span>guiar nessa jornada</span></div>
+    <div style="height:12px"></div>
+    <div class="autora-card">
+      <img src="foto.jpg.png" class="autora-foto" alt="Nutri Jéssica Rabelo">
+      <div>
+        <div class="autora-nome">Nutri Jéssica Rabelo</div>
+        <div class="autora-cargo">Chef & Nutricionista · Le Cordon Bleu</div>
+        <div class="autora-bio">Formada em gastronomia no Brasil, Alemanha e Argentina. Diploma Plant Based pelo Le Cordon Bleu. Desde 2013 desenvolvendo receitas Low Carb que já ajudaram milhares de pessoas a emagrecer com prazer.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEPOIMENTOS -->
+  <div class="section bg-warm">
+    <div class="section-title">Quem já <span>transformou</span><br>a alimentação</div>
+    <div style="height:16px"></div>
+
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <div class="depo-text">"Perdi 3 kg em duas semanas! O pudim com morango resolveu meu ataque de doce no trabalho. Nunca pensei que emagrecer seria tão gostoso."</div>
+      <div class="depo-autor">
+        <div class="depo-avatar">M</div>
+        <div><div class="depo-nome">Mariana Silva</div><div class="depo-local">Brasil</div></div>
+      </div>
+    </div>
+
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <div class="depo-text">"4 kg em 20 dias! As receitas doces foram minha salvação. Meu marido fica roubando meus lanchinhos de chia!"</div>
+      <div class="depo-autor">
+        <div class="depo-avatar">E</div>
+        <div><div class="depo-nome">Eliana Costa</div><div class="depo-local">Brasil</div></div>
+      </div>
+    </div>
+
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <div class="depo-text">"Melhorou meu intestino preso em uma semana. Receitas fáceis, rápidas e saborosas. Recomendo demais!"</div>
+      <div class="depo-autor">
+        <div class="depo-avatar">B</div>
+        <div><div class="depo-nome">Beatriz Oliveira</div><div class="depo-local">São Paulo</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREÇO -->
+  <div class="section">
+    <div class="section-title" style="text-align:center;">Garanta seu<br><span>acesso vitalício</span></div>
+    <div style="height:16px"></div>
+
+    <div class="price-box">
+      <div class="price-label">ACESSO VITALÍCIO</div>
+      <div class="price-de">De R$397,00</div>
+      <div class="price-por">Por apenas</div>
+      <div class="price-valor">R$127,90</div>
+      <div class="price-acesso">Pagamento único • Acesso para sempre</div>
+
+      <div class="price-includes">
+        <div class="price-item"><span class="price-check">✓</span> Receitas em vídeo exclusivas</div>
+        <div class="price-item"><span class="price-check">✓</span> Treinos em casa sem equipamento</div>
+        <div class="price-item"><span class="price-check">✓</span> Protocolo completo 21 dias</div>
+        <div class="price-item"><span class="price-check">✓</span> Contador de calorias com IA</div>
+        <div class="price-item"><span class="price-check">✓</span> 12 e-books para download</div>
+        <div class="price-item"><span class="price-check">✓</span> Rastreador de progresso</div>
+        <div class="price-item"><span class="price-check">✓</span> Grupo VIP com a Nutri Jéssica</div>
+        <div class="price-item"><span class="price-check">✓</span> Atualizações gratuitas vitalícias</div>
+      </div>
+
+      <a href="LINK_CHECKOUT" class="price-cta">Quero meu acesso agora →</a>
+      <div class="price-garantia">🔒 Pagamento 100% seguro · Garantia de 7 dias</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- GARANTIA -->
+  <div class="section">
+    <div class="garantia-box">
+      <div class="garantia-icon">🛡️</div>
+      <div class="garantia-title">Garantia de 7 dias</div>
+      <div class="garantia-text">Se em 7 dias você não gostar por qualquer motivo, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é todo nosso.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <div class="section-title">Perguntas <span>frequentes</span></div>
+    <div style="height:16px"></div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Como acesso o app? <span class="faq-arrow">›</span></div>
+      <div class="faq-a">Após a compra você recebe o link do app por e-mail. É só abrir no navegador do celular e salvar na tela inicial — funciona igual a um app da loja.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Precisa instalar algo? <span class="faq-arrow">›</span></div>
+      <div class="faq-a">Não! É um app web — funciona direto no navegador do celular, sem precisar baixar nada da App Store ou Play Store.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Funciona no iPhone e Android? <span class="faq-arrow">›</span></div>
+      <div class="faq-a">Sim! Funciona em qualquer celular com acesso à internet, seja iPhone ou Android.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Os e-books ficam no celular? <span class="faq-arrow">›</span></div>
+      <div class="faq-a">Sim! Você pode baixar todos os PDFs diretamente para o seu celular ou computador e acessar quando quiser, mesmo sem internet.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo tenho acesso? <span class="faq-arrow">›</span></div>
+      <div class="faq-a">Acesso vitalício! Paga uma única vez e tem acesso para sempre, incluindo todas as atualizações futuras.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">O contador de calorias é preciso? <span class="faq-arrow">›</span></div>
+      <div class="faq-a">É uma estimativa por inteligência artificial — muito útil para ter uma ideia das calorias do prato, mas não substitui a orientação de um nutricionista para casos específicos.</div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="section" style="text-align:center;background:linear-gradient(160deg,#2A1A0E,#1A1A1A);color:white;">
+    <div style="font-size:24px;font-weight:800;margin-bottom:8px;line-height:1.2;">Comece hoje a sua<br><span style="color:var(--orange);">transformação com chia</span></div>
+    <div style="font-size:14px;opacity:.7;margin-bottom:24px;line-height:1.5;">Mais de uma mulher começa esse programa a cada hora. Não deixe para amanhã.</div>
+    <a href="LINK_CHECKOUT" style="display:block;background:linear-gradient(135deg,var(--orange),#F5933A);color:white;text-decoration:none;padding:18px;border-radius:16px;font-size:18px;font-weight:800;box-shadow:0 6px 24px rgba(232,115,26,0.4);margin-bottom:12px;">Quero meu acesso por R$127,90 →</a>
+    <div style="font-size:12px;opacity:.5;">Garantia de 7 dias • Acesso vitalício • Pagamento seguro</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-name">Nutri Jéssica Rabelo</div>
+    <div class="footer-text">© 2025 Delícias com Chia · Todos os direitos reservados<br>Os resultados podem variar de pessoa para pessoa.</div>
+  </div>
+
+  <!-- Espaço para sticky CTA -->
+  <div style="height:72px;"></div>
+</div>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+  <a href="LINK_CHECKOUT">🍰 Garantir meu acesso — R$127,90</a>
+</div>
+
+<script>
+function toggleFaq(el) {
+  var answer = el.nextElementSibling;
+  var arrow = el.querySelector('.faq-arrow');
+  var isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(function(a){ a.classList.remove('open'); });
+  document.querySelectorAll('.faq-arrow').forEach(function(a){ a.style.transform = ''; });
+  if (!isOpen) {
+    answer.classList.add('open');
+    arrow.style.transform = 'rotate(90deg)';
+  }
+}
+</script>
+</body>
+</html>
