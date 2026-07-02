@@ -389,6 +389,30 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; backg
             <div class="quick-sub">Foto do prato → análise instantânea</div>
           </div>
         </div>
+        <div class="quick-card" onclick="switchTab('cafe')">
+          <img src="receitascafedamanha.jpg" alt="Café da Manhã">
+          <div class="quick-card-overlay"></div>
+          <div class="quick-card-body">
+            <div class="quick-name">Café da Manhã ☕</div>
+            <div class="quick-sub">Receitas para começar bem o dia</div>
+          </div>
+        </div>
+        <div class="quick-card" onclick="switchTab('semgluten')">
+          <img src="receitassemgluten.jpg" alt="Sem Glúten">
+          <div class="quick-card-overlay"></div>
+          <div class="quick-card-body">
+            <div class="quick-name">Sem Glúten 🌾</div>
+            <div class="quick-sub">Receitas leves e saudáveis</div>
+          </div>
+        </div>
+        <div class="quick-card" onclick="switchTab('saladas')">
+          <img src="saladas.jpg" alt="Saladas">
+          <div class="quick-card-overlay"></div>
+          <div class="quick-card-body">
+            <div class="quick-name">Saladas Gostosas 🥗</div>
+            <div class="quick-sub">Leves, frescas e nutritivas</div>
+          </div>
+        </div>
         <div class="quick-card" onclick="switchTab('ebook')">
           <img src="fotoebook2.png" alt="Ebook">
           <div class="quick-card-overlay"></div>
@@ -547,6 +571,42 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; backg
         <div class="card" style="background:#FFF0E6;" id="ia-obs"></div>
         <div style="font-size:11px;color:#bbb;text-align:center;margin-top:8px;padding:0 16px;line-height:1.5;">⚠️ Valores são estimativas aproximadas e não substituem orientação de um nutricionista.</div>
       </div>
+    </div>
+
+    <!-- CAFÉ DA MANHÃ -->
+    <div class="tab" id="tab-cafe">
+      <div class="back-header"><button class="back-btn" onclick="switchTab('home')">‹</button><div class="back-title">Café da Manhã ☕</div></div>
+      <div class="section-sub">Receitas para começar bem o dia com energia</div>
+      <div class="card" style="background:linear-gradient(135deg,var(--brown-dark),var(--orange-dark));color:white;text-align:center;padding:20px;">
+        <div style="font-size:40px;margin-bottom:8px;">☕</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:4px;">E-book em breve!</div>
+        <div style="font-size:13px;opacity:.8;">As receitas de café da manhã serão disponibilizadas aqui para download.</div>
+      </div>
+      <div id="cafe-downloads"></div>
+    </div>
+
+    <!-- SEM GLÚTEN -->
+    <div class="tab" id="tab-semgluten">
+      <div class="back-header"><button class="back-btn" onclick="switchTab('home')">‹</button><div class="back-title">Sem Glúten 🌾</div></div>
+      <div class="section-sub">Receitas saudáveis e livres de glúten</div>
+      <div class="card" style="background:linear-gradient(135deg,var(--brown-dark),var(--orange-dark));color:white;text-align:center;padding:20px;">
+        <div style="font-size:40px;margin-bottom:8px;">🌾</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:4px;">E-book em breve!</div>
+        <div style="font-size:13px;opacity:.8;">As receitas sem glúten serão disponibilizadas aqui para download.</div>
+      </div>
+      <div id="semgluten-downloads"></div>
+    </div>
+
+    <!-- SALADAS -->
+    <div class="tab" id="tab-saladas">
+      <div class="back-header"><button class="back-btn" onclick="switchTab('home')">‹</button><div class="back-title">Saladas Gostosas 🥗</div></div>
+      <div class="section-sub">Saladas frescas, nutritivas e cheias de sabor</div>
+      <div class="card" style="background:linear-gradient(135deg,var(--brown-dark),var(--orange-dark));color:white;text-align:center;padding:20px;">
+        <div style="font-size:40px;margin-bottom:8px;">🥗</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:4px;">E-book em breve!</div>
+        <div style="font-size:13px;opacity:.8;">As receitas de saladas serão disponibilizadas aqui para download.</div>
+      </div>
+      <div id="saladas-downloads"></div>
     </div>
 
   </div>
