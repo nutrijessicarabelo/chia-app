@@ -1,0 +1,18 @@
+{
+  "name": "Emagreça com Chia",
+  "short_name": "Chia App",
+  "description": "Receitas, treinos e protocolo 21 dias para emagrecer com chia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#27AE60",
+  "theme_color": "#27AE60",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
